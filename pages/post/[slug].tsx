@@ -40,15 +40,27 @@ export default function Post({ post, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title}
-                </title>
                 <meta
                   property="og:image"
                   content={post.featuredImage?.node.sourceUrl}
                 />
+                <meta
+                  property="og:title"
+                  content=""
+                />
+                <meta
+                  property="og:url"
+                  content={post.featuredImage?.node.sourceUrl}
+                />
+                <meta
+                  property="og:description"
+                  content=""
+                />
+                <meta
+                  property="og:site_name"
+                  content="test site"
+                />
               </Head>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">{post.title}</h1>
               <p>You are being redirected to the post, please wait 1-2 seconds...</p>
             </article>
           </>
