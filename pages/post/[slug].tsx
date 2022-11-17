@@ -44,10 +44,6 @@ export default function Post({ post, preview }) {
                   {post.title}
                 </title>
                 <meta
-                  property="og:title"
-                  content={post.title}
-                />
-                <meta
                   property="og:image"
                   content={post.featuredImage?.node.sourceUrl}
                 />
@@ -65,12 +61,12 @@ export default function Post({ post, preview }) {
 export async function getServerSideProps(context) {
   const { slug } = context.params;
 
-  if ((context?.req?.headers?.referer || "").indexOf("facebook.com") !== -1) {
-    context.res.setHeader("location", `${domain}${slug}`);
-    context.res.statusCode = 301;
-    context.res.end();
-    return { props: { data: {} } };
-  }
+//   if ((context?.req?.headers?.referer || "").indexOf("facebook.com") !== -1) {
+//     context.res.setHeader("location", `${domain}${slug}`);
+//     context.res.statusCode = 301;
+//     context.res.end();
+//     return { props: { data: {} } };
+//   }
   const data = await getPostAndMorePosts(slug, false, {})
 
   return {
