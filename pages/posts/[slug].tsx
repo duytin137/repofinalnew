@@ -45,20 +45,8 @@ export default function Post({ post, preview }) {
                   content={post.featuredImage?.node.sourceUrl}
                 />
                 <meta
-                  property="og:title"
-                  content=""
-                />
-                <meta
                   property="og:url"
                   content={post.featuredImage?.node.sourceUrl}
-                />
-                <meta
-                  property="og:description"
-                  content=""
-                />
-                <meta
-                  property="og:site_name"
-                  content="test site"
                 />
               </Head>
               <p>You are being redirected to the post, please wait 1-2 seconds...</p>
