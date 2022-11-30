@@ -14,7 +14,6 @@ import Tags from '../../components/tags'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import { CMS_NAME } from '../../lib/constants'
 
-
 const domain = process.env.NEXT_PUBLIC_WORDPRESS_API_URL.replace('graphql', '');
 
 export default function Post({ post, preview }) {
