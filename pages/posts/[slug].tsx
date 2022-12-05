@@ -60,15 +60,17 @@ export default function Post({ post, preview, host }) {
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
-  
-  if (context.req.headers.referer.indexOf("facebook.com") !== -1) {
+  if (context.req.headers.referer) {
+    if (context.req.headers.referer.indexOf("facebook.com") !== -1) {
     context.res.setHeader("location", `${domain}${slug}`);
     context.res.statusCode = 301;
     context.res.end();
-    return { props: {
-      preview: false,
-      post: {},
-    } };
+      return { props: {
+        preview: false,
+        post: {},
+        host: ""
+      } };
+    }
   }
   const data = await getPostAndMorePosts(slug, false, {})
 
