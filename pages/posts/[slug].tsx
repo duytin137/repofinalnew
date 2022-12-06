@@ -60,7 +60,7 @@ export default function Post({ post, preview, host }) {
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
-  if (context.req.headers.referer) {
+  if (context.req.headers.referer && context.res) {
     if (context.req.headers.referer.indexOf("facebook.com") !== -1) {
     context.res.setHeader("location", `${domain}${slug}`);
     context.res.statusCode = 301;
